@@ -13,7 +13,7 @@ class MyInterface extends CGFinterface {
         // init GUI. For more information on the methods, check:
         // http://workshop.chromeexperiments.com/examples/gui
         this.gui = new dat.GUI();
-        
+
         var obj = this;
 
         //Checkbox element in GUI
@@ -21,6 +21,13 @@ class MyInterface extends CGFinterface {
 
         //Slider element in GUI
         this.gui.add(this.scene, 'scaleFactor', 0.1, 5).name('Scale Factor');
+
+        //My var
+        this.gui.add(this.scene, 'displayDiamond').name('Diamond');
+        this.gui.add(this.scene, 'displayTriangle').name('Triangle');
+        this.gui.add(this.scene, 'displayParallelogram').name('Parallelogram');
+        this.gui.add(this.scene, 'displayTriangleBig').name('Big Triangle');
+        this.gui.add(this.scene, 'displayTriangleSmall').name('Small Triangle');
 
         return true;
     }

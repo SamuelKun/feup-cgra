@@ -22,10 +22,20 @@ class MyScene extends CGFscene {
         //Initialize scene objects
         this.axis = new CGFaxis(this);
         this.diamond = new MyDiamond(this);
+        this.triangle = new MyTriangle(this);
+        this.parallelogram = new MyParallelogram(this);
+        this.triangleBig = new MyTriangleBig(this);
+        this.triangleSmall = new MyTriangleSmall(this);
 
         //Objects connected to MyInterface
         this.displayAxis = true;
         this.scaleFactor = 1;
+
+        this.displayDiamond = false;
+        this.displayTriangle = false;
+        this.displayParallelogram = false;
+        this.displayTriangleSmall = false;
+        this.displayTriangleBig = false;
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);
@@ -52,7 +62,7 @@ class MyScene extends CGFscene {
         this.loadIdentity();
         // Apply transformations corresponding to the camera position relative to the origin
         this.applyViewMatrix();
-        
+
         // Draw axis
         if (this.displayAxis)
             this.axis.display();
@@ -67,8 +77,20 @@ class MyScene extends CGFscene {
 
 
         // ---- BEGIN Primitive drawing section
+        if(this.displayDiamond)
+          this.diamond.display();
 
-        this.diamond.display();
+        if(this.displayTriangle)
+          this.triangle.display();
+
+        if(this.displayParallelogram)
+          this.parallelogram.display();
+
+        if(this.displayTriangleBig)
+          this.triangleBig.display();
+
+        if(this.displayTriangleSmall)
+          this.triangleSmall.display();
 
         // ---- END Primitive drawing section
     }
