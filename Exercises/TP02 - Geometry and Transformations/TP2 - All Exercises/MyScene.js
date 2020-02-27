@@ -76,12 +76,31 @@ class MyScene extends CGFscene {
         this.multMatrix(sca);
 
 
-        // ---- BEGIN Primitive drawing section
-        if(this.displayDiamond)
-          this.diamond.display();
+        // Drawing Section
 
-        if(this.displayTriangle)
+        var diamond_matrix = [1.0, 0.0, 0.0, 0.0,
+                              0.0, 1.0, 0.0, 0.0,
+                              0.0, 0.0, 1.0, 0.0,
+                              -1.0,  Math.sqrt(45), 0.0, 1.0];
+
+        if(this.displayDiamond) {
+          // Transformações da forma Diamond
+          // Coloca a matriz inicial sem transformações na stack
+          this.pushMatrix();
+          //Transformações da forma Diamond
+          this.multMatrix(diamond_matrix);
+          this.diamond.display();
+          // Tira a matriz de transformação do diamond, voltando à original
+          this.popMatrix();
+
+          //Transformações da forma Triangle
+          this.pushMatrix();
+          this.multMatrix(diamond_matrix);
           this.triangle.display();
+        }
+
+        /*
+        if(this.displayTriangle)
 
         if(this.displayParallelogram)
           this.parallelogram.display();
@@ -91,6 +110,7 @@ class MyScene extends CGFscene {
 
         if(this.displayTriangleSmall)
           this.triangleSmall.display();
+        */
 
         // ---- END Primitive drawing section
     }
