@@ -21,12 +21,19 @@ class MyScene extends CGFscene {
 
         //Initialize scene objects
         this.axis = new CGFaxis(this);
-        this.tangram = new MyTangram(this);
+        this.diamond = new MyDiamond(this);
+        this.triangle = new MyTriangle(this);
+        this.parallelogram = new MyParallelogram(this);
 
         //Objects connected to MyInterface
         this.displayAxis = true;
-        this.displayTangram = true;
         this.scaleFactor = 1;
+
+        this.displayDiamond = false;
+        this.displayTriangle = false;
+        this.displayParallelogram = false;
+        this.displayTriangleSmall = false;
+        this.displayTriangleBig = false;
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);
@@ -66,8 +73,17 @@ class MyScene extends CGFscene {
                     0.0, 0.0, 0.0, 1.0];
         this.multMatrix(sca);
 
-        // Draw tangram
-        if(this.displayTangram)
-          this.tangram.display();
+
+        // ---- BEGIN Primitive drawing section
+        if(this.displayDiamond)
+          this.diamond.display();
+
+        if(this.displayTriangle)
+          this.triangle.display();
+
+        if(this.displayParallelogram)
+          this.parallelogram.display();
+
+        // ---- END Primitive drawing section
     }
 }

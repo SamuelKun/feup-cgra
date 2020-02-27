@@ -21,15 +21,12 @@ class MyScene extends CGFscene {
 
         //Initialize scene objects
         this.axis = new CGFaxis(this);
-        this.face = new FerbFace(this);
-        this.nose = new FerbNose(this);
-        this.mouth = new FerbMouth(this);
+        this.tangram = new MyTangram(this);
 
         //Objects connected to MyInterface
         this.displayAxis = true;
+        this.displayTangram = true;
         this.scaleFactor = 1;
-
-        this.displayFerb = false;
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);
@@ -69,20 +66,8 @@ class MyScene extends CGFscene {
                     0.0, 0.0, 0.0, 1.0];
         this.multMatrix(sca);
 
-
-        // ---- BEGIN Primitive drawing section
-        this.setAmbient(1, 0.85, 0.69, 1);
-        this.setDiffuse(1, 0.85, 0.69, 1);
-        this.setSpecular(0, 0, 0, 1);
-        this.setShininess(10);
-
-        if(this.displayFerb){
-          this.face.display();
-          this.nose.display();
-          this.mouth.display();
-        }
-
-
-        // ---- END Primitive drawing section
+        // Draw tangram
+        if(this.displayTangram)
+          this.tangram.display();
     }
 }

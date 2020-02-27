@@ -1,26 +1,25 @@
 /**
- * MyDiamond
+ * MyTriangleSmall
  * @constructor
  * @param scene - Reference to MyScene object
  */
-class FerbFace extends CGFobject {
-	constructor(scene) {
-		super(scene);
-		this.initBuffers();
-	}
-	initBuffers() {
+class MyTriangleSmall extends CGFobject {
+  constructor(scene) {
+    super(scene)
+    this.initBuffers();
+  }
+  initBuffers() {
 		this.vertices = [
-			10, 0, 0,	//0
-			9, 20, 0,	//1
-			16, 20, 0,	//2
-			14, 0, 0		//3
+        -1, 0, 0,
+        1, 0, 0,
+        0, 1, 0
 		];
 
 		//Counter-clockwise reference of vertices
 		this.indices = [
-			0, 2, 1,
-			0, 3, 2
+        0, 1, 2
 		];
+
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	}
