@@ -2,9 +2,36 @@
 * MyScene
 * @constructor
 */
+
+var x;
+
+document.addEventListener('keydown', Miscari);
+function Miscari(e) {
+  x = e.keyCode;
+  switch (x) {
+    case 37:
+      dir = 'left';
+      break;
+
+    case 39:
+      dir = 'right';
+      break;
+
+    case 38:
+      dir = 'up';
+      break;
+
+    case 40:
+      dir = 'down';
+      break;
+  }
+  console.log(x);
+}
+
 class MyScene extends CGFscene {
     constructor() {
         super();
+        this.value = 0;
     }
     init(application) {
         super.init(application);
@@ -28,6 +55,9 @@ class MyScene extends CGFscene {
         this.righteye = new FerbEye(this, 1.9, 11.5, 14.5, 0.2);
         this.righteyepupil = new FerbEye(this, 0.4, 9.3, 14.1, 0.3);
         this.lefteyepupil = new FerbEye(this, 0.4, 11.5, 14.5, 0.3);
+        this.garden = new MyUnitQuadCube(this);
+        this.phineas = new MyPhineas(this);
+        this.tree = new MyCircle(this, 5, 0, 7.5, 0);
 
         //Objects connected to MyInterface
         this.displayAxis = true;
@@ -75,6 +105,9 @@ class MyScene extends CGFscene {
 
 
         // ---- BEGIN Primitive drawing section
+        this.pushMatrix();
+        this.scale(0.1, 0.1, 0.1);
+        this.pushMatrix();
         this.setAmbient(1, 1, 1, 1);
         this.setDiffuse(1, 1, 1, 1);
         this.setSpecular(0, 0, 0, 1);
@@ -93,9 +126,61 @@ class MyScene extends CGFscene {
         this.face.display();
         this.nose.display();
         this.mouth.display();
+        this.popMatrix();
+        this.popMatrix();
+
+        this.pushMatrix();
+        this.setAmbient(0.3, 1, 0.2, 1);
+        this.setDiffuse(0.3, 1, 0.2, 1);
+        this.translate(0, -1, 0);
+        this.scale(20, 1, 20);
+        this.garden.display();
+        this.popMatrix();
+
+        this.pushMatrix();
+        this.setAmbient(0.53, 0.81, 0.92, 1);
+        this.setDiffuse(0.53, 0.81, 0.92, 1);
+        this.translate(0, 0, -3);
+        this.scale(20, 20, 1);
+        this.garden.display();
+        this.popMatrix();
+
+        for(var i = 0; i <= 20; i++) {
+          this.pushMatrix();
+          this.setAmbient(0.80, 0.62, 0.35, 1);
+          this.setDiffuse(0.80, 0.62, 0.35, 1);
+          this.translate(-10 + i, 0, -2);
+          this.scale(1, 3, 0.5);
+          this.garden.display();
+          this.popMatrix();
+        }
+
+        this.pushMatrix();
+        this.setAmbient(0.50, 0.35, 0.15, 1);
+        this.setDiffuse(0.50, 0.35, 0.15, 1);
+        this.translate(0, 0, -1);
+        this.scale(1, 10, 0.5);
+        this.garden.display();
+        this.popMatrix();
 
 
 
+        var seconds = new Date().getTime() / 1000;
+        this.pushMatrix();
+        this.scale(0.1,0.1,0.1);
+        if(x == 40) {
+        this.value += 1;
+
+        x = 0;
+      }
+      this.translate(this.value,10,0);
+      this.phineas.display();
+
+        this.popMatrix();
+
+        this.setAmbient(0.0, 0.60, 0.20, 1);
+        this.setDiffuse(0.0, 0.60, 0.20, 1);
+        this.tree.display();
 
         // ---- END Primitive drawing section
     }

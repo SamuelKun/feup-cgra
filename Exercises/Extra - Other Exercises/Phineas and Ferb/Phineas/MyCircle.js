@@ -3,7 +3,7 @@
  * @constructor
  * @param scene - Reference to MyScene object
  */
-class FerbEye extends CGFobject {
+class MyCircle extends CGFobject {
     constructor(scene, radius, centerX, centerY, centerZ) {
         super(scene);
         this.radius = radius;
@@ -42,6 +42,7 @@ class FerbEye extends CGFobject {
         }
 
         this.primitiveType = this.scene.gl.TRIANGLES;
+
         this.initGLBuffers();
     }
 }
