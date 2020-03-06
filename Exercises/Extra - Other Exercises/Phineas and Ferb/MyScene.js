@@ -3,35 +3,19 @@
 * @constructor
 */
 
-var x;
+var keyPressed;
 
-document.addEventListener('keydown', Miscari);
-function Miscari(e) {
-  x = e.keyCode;
-  switch (x) {
-    case 37:
-      dir = 'left';
-      break;
+document.addEventListener('keydown', getKey);
 
-    case 39:
-      dir = 'right';
-      break;
-
-    case 38:
-      dir = 'up';
-      break;
-
-    case 40:
-      dir = 'down';
-      break;
-  }
-  console.log(x);
+function getKey(k) {
+  keyPressed = k.keyCode;
 }
 
 class MyScene extends CGFscene {
     constructor() {
         super();
-        this.value = 0;
+        this.xAxis = 0;
+        this.yAxis = 0;
     }
     init(application) {
         super.init(application);
@@ -165,16 +149,29 @@ class MyScene extends CGFscene {
 
 
 
-        var seconds = new Date().getTime() / 1000;
         this.pushMatrix();
         this.scale(0.1,0.1,0.1);
-        if(x == 40) {
-        this.value += 1;
+        switch (keyPressed) {
+            case 37:
+              this.xAxis -= 1;
+              keyPressed = 0;
+              break;
+            case 39:
+              this.xAxis += 1;
+              keyPressed = 0;
+              break;
+            case 38:
+              this.yAxis -= 1;
+              keyPressed = 0;
+              break;
+            case 40:
+              this.yAxis += 1;
+              keyPressed = 0;
+              break;
+        }
 
-        x = 0;
-      }
-      this.translate(this.value,10,0);
-      this.phineas.display();
+        this.translate(this.xAxis, 10, this.yAxis);
+        this.phineas.display();
 
         this.popMatrix();
 
