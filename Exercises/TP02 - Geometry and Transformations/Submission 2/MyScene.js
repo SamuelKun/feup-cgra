@@ -73,13 +73,18 @@ class MyScene extends CGFscene {
 
         this.rotate(-Math.PI/2, 1,0,0);
         this.translate(4, -6.5, 0);
-        if(this.displayTangram)
+
+        if(this.displayTangram) {
+          this.pushMatrix();
+          this.translate(0, 0, 0.1);
           this.tangram.display();
+          this.popMatrix();
+        }
 
         if(this.displayUnitCube) {
           this.pushMatrix();
-          this.translate(0, 0, -0.6);
           this.scale(8, 13, 1);
+          this.translate(0, 0, -0.5);
           this.cube.display();
           this.popMatrix();
         }
