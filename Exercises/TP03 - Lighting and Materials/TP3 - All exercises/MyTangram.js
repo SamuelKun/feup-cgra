@@ -16,45 +16,45 @@ class MyTangram extends CGFobject {
 	}
 	initMaterials() {
 		this.yellow = new CGFappearance(this.scene);
-		this.yellow.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.yellow.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.yellow.setSpecular(...this.scene.hexToRgbA('#ffff00'));
+		this.yellow.setAmbient(...this.scene.hexToRgbA('#ffff00'));
+		this.yellow.setDiffuse(...this.scene.hexToRgbA('#ffff00'));
+		this.yellow.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.yellow.setShininess(10.0);
 
 		this.blue = new CGFappearance(this.scene);
-		this.blue.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.blue.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.blue.setSpecular(...this.scene.hexToRgbA('#0000ff'));
+		this.blue.setAmbient(...this.scene.hexToRgbA('#0000ff'));
+		this.blue.setDiffuse(...this.scene.hexToRgbA('#0000ff'));
+		this.blue.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.blue.setShininess(10.0);
 
 		this.orange = new CGFappearance(this.scene);
-		this.orange.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.orange.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.orange.setSpecular(...this.scene.hexToRgbA('#ff9900'));
+		this.orange.setAmbient(...this.scene.hexToRgbA('#ff9900'));
+		this.orange.setDiffuse(...this.scene.hexToRgbA('#ff9900'));
+		this.orange.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.orange.setShininess(10.0);
 
 		this.red = new CGFappearance(this.scene);
-		this.red.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.red.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.red.setSpecular(...this.scene.hexToRgbA('#ff0000'));
+		this.red.setAmbient(...this.scene.hexToRgbA('#ff0000'));
+		this.red.setDiffuse(...this.scene.hexToRgbA('#ff0000'));
+		this.red.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.red.setShininess(10.0);
 
 		this.pink = new CGFappearance(this.scene);
-		this.pink.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.pink.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.pink.setSpecular(...this.scene.hexToRgbA('#ff00ff'));
+		this.pink.setAmbient(...this.scene.hexToRgbA('#ff00ff'));
+		this.pink.setDiffuse(...this.scene.hexToRgbA('#ff00ff'));
+		this.pink.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.pink.setShininess(10.0);
 
 		this.purple = new CGFappearance(this.scene);
-		this.purple.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.purple.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.purple.setSpecular(...this.scene.hexToRgbA('#9900ff'));
+		this.purple.setAmbient(...this.scene.hexToRgbA('#9900ff'));
+		this.purple.setDiffuse(...this.scene.hexToRgbA('#9900ff'));
+		this.purple.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.purple.setShininess(10.0);
 
 		this.green = new CGFappearance(this.scene);
-		this.green.setAmbient(...this.scene.hexToRgbA('#000000'));
-		this.green.setDiffuse(...this.scene.hexToRgbA('#000000'));
-		this.green.setSpecular(...this.scene.hexToRgbA('#00ff00'));
+		this.green.setAmbient(...this.scene.hexToRgbA('#00ff00'));
+		this.green.setDiffuse(...this.scene.hexToRgbA('#00ff00'));
+		this.green.setSpecular(...this.scene.hexToRgbA('#ffffff'));
 		this.green.setShininess(10.0);
 	}
 	display() {
@@ -71,7 +71,7 @@ class MyTangram extends CGFobject {
 														0.0,								 0.0, 								 1.0, 0.0,
 														0.0,								 0.0,						 			 0.0, 1.0];
     this.scene.multMatrix(diamond_rotation);
-		this.green.apply();
+		this.scene.customMaterial.apply();
     this.diamond.display();
     // Tira a matriz de transformação do diamond, voltando à original
     this.scene.popMatrix();
