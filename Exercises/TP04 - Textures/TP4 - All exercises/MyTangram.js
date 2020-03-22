@@ -47,12 +47,18 @@
      this.scene.pushMatrix();
      this.scene.translate(0, Math.sqrt(2), 0);
      this.scene.rotate(3*Math.PI/4, 0, 0, 1);
+     this.triangleSmall.updateTexCoords([0, 0,
+                                         0, 0.5,
+                                         0.25, 0.25]);
      this.triangleSmall.display();
      this.scene.popMatrix();
 
      this.scene.pushMatrix();
      this.scene.translate(0, 2 * Math.sqrt(2), 0);
      this.scene.rotate(Math.PI/4, 0, 0, 1);
+     this.triangleSmall.updateTexCoords([0.5, 0.5,
+                                         0.25, 0.75,
+                                         0.75, 0.75]);
      this.triangleSmall.display();
      this.scene.popMatrix();
 
@@ -65,18 +71,18 @@
      this.scene.pushMatrix();
      this.scene.translate(0, Math.sqrt(2)/2 + 3 * Math.sqrt(2), 0);
      this.scene.rotate(3*Math.PI/4, 0, 0, 1);
+     this.triangleBig.updateTexCoords([1, 0,
+                                       0.5, 0.5,
+                                       1, 1]);
      this.triangleBig.display();
      this.scene.popMatrix();
 
      this.scene.pushMatrix();
      this.scene.translate(0, Math.sqrt(2)/2 + 3 * Math.sqrt(2), 0);
      this.scene.rotate(7*Math.PI/4, 0, 0, 1);
-     this.triangleBig.display();
-     this.scene.popMatrix();
-
-     this.scene.pushMatrix();
-     this.scene.translate(0, Math.sqrt(2)/2 + 3 * Math.sqrt(2), 0);
-     this.scene.rotate(7*Math.PI/4, 0, 0, 1);
+     this.triangleBig.updateTexCoords([0, 0,
+                                       0.5, 0.5,
+                                       1, 0]);
      this.triangleBig.display();
      this.scene.popMatrix();
 

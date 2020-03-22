@@ -25,8 +25,15 @@ class MyTriangleSmall extends CGFobject {
         this.normals.push(0, 0, 1);
     }
 
+    this.texCoords = [];
 
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
+    this.updateTexCoordsGLBuffers();
 	}
+
+  updateTexCoords(coords) {
+    this.texCoords = [...coords];
+    this.updateTexCoordsGLBuffers();
+  }
 }
