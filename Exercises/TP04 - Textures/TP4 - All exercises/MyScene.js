@@ -137,14 +137,14 @@ class MyScene extends CGFscene {
 
         this.scale(this.scaleFactor, this.scaleFactor, this.scaleFactor);
 
-        this.quadMaterial.apply();
+
         // ---- BEGIN Primitive drawing section
         if(this.displayQuad) {
-
             // Default texture filtering in WebCGF is LINEAR.
             // Uncomment next line for NEAREST when magnifying, or
             // add a checkbox in the GUI to alternate in real time
             // this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
+            this.quadMaterial.apply();
             this.quad.display();
         }
 
