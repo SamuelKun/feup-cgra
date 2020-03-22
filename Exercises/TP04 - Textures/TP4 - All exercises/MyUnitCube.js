@@ -31,6 +31,7 @@ class MyUnitCube extends CGFobject {
 		// Side
 		this.textureSide();
 		this.minecraftTexture.apply();
+    this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
     this.scene.pushMatrix();
 		this.scene.rotate(-Math.PI/2, 0,1,0);
 		this.scene.translate(0,0,0.5);
@@ -57,6 +58,7 @@ class MyUnitCube extends CGFobject {
 		// Bottom
 		this.textureBottom();
 		this.minecraftTexture.apply();
+    this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
     this.scene.pushMatrix();
     this.scene.rotate(Math.PI/2, 1,0,0);
 		this.scene.translate(0,0,0.5);
@@ -66,6 +68,7 @@ class MyUnitCube extends CGFobject {
 		// Top
 		this.textureTop();
 		this.minecraftTexture.apply();
+    this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
     this.scene.pushMatrix();
 		this.scene.rotate(-Math.PI/2, 1,0,0);
 		this.scene.translate(0,0,0.5);
