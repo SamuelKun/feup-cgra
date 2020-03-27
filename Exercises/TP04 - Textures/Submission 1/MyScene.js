@@ -25,7 +25,6 @@ class MyScene extends CGFscene {
         this.axis = new CGFaxis(this);
         this.quad = new MyQuad(this);
         this.tangram = new MyTangram(this);
-        this.cube = new MyUnitCube(this);
 
         //------ Applied Material
         this.quadMaterial = new CGFappearance(this);
@@ -47,7 +46,6 @@ class MyScene extends CGFscene {
         this.displayAxis = true;
         this.displayQuad = true;
         this.displayTangram = false;
-        this.displayCube = true;
         this.scaleFactor = 5;
         this.selectedTexture = -1;
         this.wrapS = 0;
@@ -144,16 +142,14 @@ class MyScene extends CGFscene {
             // Default texture filtering in WebCGF is LINEAR.
             // Uncomment next line for NEAREST when magnifying, or
             // add a checkbox in the GUI to alternate in real time
-            //this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
+            // this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
             this.quadMaterial.apply();
             this.quad.display();
         }
 
-        if(this.displayTangram)
+        if(this.displayTangram) {
           this.tangram.display();
-
-        if(this.displayCube)
-          this.cube.display();
+        }
 
         // ---- END Primitive drawing section
     }
