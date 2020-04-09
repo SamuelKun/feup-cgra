@@ -25,9 +25,6 @@ void main() {
     if(filter.b > 0.5)
       offset = 0.045 * aVertexNormal;
 
-    if (filter.b < 0.0)
-      offset = 0.0 * aVertexNormal;
-
     gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition + offset, 1.0);
 
     vTextureCoord = aTextureCoord;
